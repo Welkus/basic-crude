@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/base-style.css}"/>
+    <title>Base</title>
+</head>
+<body>
+<nav class="navbar" th:fragment="navigator">
+    <ul class="nav-list">
+        <li class="nav-list-item">
+            <a href="#">Create</a>
+        </li>
+        <li class="nav-list-item">
+            <a th:href="@{read}">Read</a>
+        </li>
+        <li class="nav-list-item">
+            <a href="#">Update</a>
+        </li>
+        <li class="nav-list-item">
+            <a href="#">Delete</a>
+        </li>
+    </ul>
+</nav>
+
+</body>
+</html>

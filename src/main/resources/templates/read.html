@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/base-style.css}">
+    <link rel="stylesheet" th:href="@{/css/read-style.css}">
+    <title>Read</title>
+
+    <script>
+        function resetAndRedirect() {
+            document.getElementById('searchForm').reset();
+            window.location.href = '/read';
+        }
+    </script>
+
+</head>
+<body>
+<div th:replace="base :: navigator"></div>
+<main>
+    <form class="search-filter" action="/read" method="post" id="searchForm">
+        <label>Search and Filter</label>
+        <div>
+            <input type="text" name="firstName" placeholder="user's first name">
+            <input type="text" name="lastName" placeholder="user's last name">
+            <div class="role-selector">
+                <label for="role">Role</label>
+                <select name="role" id="role" multiple>
+                    <option value="Admin">Admin</option>
+                    <option value="Teacher">Teacher</option>
+                    <option value="Student">Student</option>
+                </select>
+            </div>
+            <input type="submit" value="Submit">
+            <button type="button" onclick="resetAndRedirect()">Reset</button>
+        </div>
+    </form>
+    <table>
+        <caption>Persons</caption>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.getId()}"></td>
+            <td th:text="${user.getFirstName()}"></td>
+            <td th:text="${user.getLastName()}"></td>
+            <td th:text="${user.getRole()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</main>
+
+
+</body>
+</html>

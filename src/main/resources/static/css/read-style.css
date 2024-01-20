@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    margin-left: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    flex-grow: 1;
+}
+
+.search-filter{
+    flex-grow: 1;
+    order: -1;
+}
+.search-filter > label{
+    justify-content: center;
+}
+
+.role-selector{
+    display: flex;
+    flex-direction: column;
+}
