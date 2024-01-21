@@ -1,4 +1,4 @@
-package com.crudelearning.cruddemo;
+package com.crudelearning.cruddemo.service;
 
 import lombok.Data;
 import lombok.Getter;

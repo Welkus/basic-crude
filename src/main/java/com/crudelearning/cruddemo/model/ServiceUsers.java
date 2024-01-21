@@ -1,4 +1,4 @@
-package com.crudelearning.cruddemo;
+package com.crudelearning.cruddemo.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

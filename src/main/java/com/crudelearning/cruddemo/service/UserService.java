@@ -1,8 +1,8 @@
 package com.crudelearning.cruddemo.service;
 import java.util.List;
 
-import com.crudelearning.cruddemo.ServiceUsers;
-import com.crudelearning.cruddemo.UserFilter;
+import com.crudelearning.cruddemo.DAO.UserRepository;
+import com.crudelearning.cruddemo.model.ServiceUsers;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -10,6 +10,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,6 +19,12 @@ import java.util.ArrayList;
 public class UserService {
     @PersistenceContext
     private EntityManager em;
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     public List<ServiceUsers> filterUser(UserFilter userFilter){
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery <ServiceUsers> cq = cb.createQuery(ServiceUsers.class);
@@ -38,5 +45,13 @@ public class UserService {
         TypedQuery<ServiceUsers> query = em.createQuery(cq);
         return query.getResultList();
 
+    }
+
+    public String create(ServiceUsers serviceUsers){
+        ServiceUsers newUser = userRepository.save(serviceUsers);
+        if( newUser != null ){
+            return "Successfully created";
+        }
+        return "Failed to add user";
     }
 }

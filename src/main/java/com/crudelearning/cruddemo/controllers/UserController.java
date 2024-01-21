@@ -1,8 +1,8 @@
 package com.crudelearning.cruddemo.controllers;
 
-import com.crudelearning.cruddemo.ServiceUsers;
-import com.crudelearning.cruddemo.UserFilter;
-import com.crudelearning.cruddemo.repositories.UserRepository;
+import com.crudelearning.cruddemo.model.ServiceUsers;
+import com.crudelearning.cruddemo.service.UserFilter;
+import com.crudelearning.cruddemo.DAO.UserRepository;
 import com.crudelearning.cruddemo.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
